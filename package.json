@@ -1,0 +1,27 @@
+{
+  "name": "react-native-google-analytics",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lwansbrough/react-native-google-analytics.git"
+  },
+  "version": "0.0.1",
+  "description": "Google Analytics for React Native!",
+  "main": "index.js",
+  "author": "Lochlan Wansbrough <lochie@live.com> (http://lwansbrough.com)",
+  "peerDependencies": {
+    "react-native": "^0.4.0"
+  },
+  "keywords": [
+    "react",
+    "native",
+    "ab",
+    "test",
+    "testing",
+    "analytics",
+    "metrics",
+    "events",
+    "google",
+    "experiment",
+    "variant"
+  ]
+}
