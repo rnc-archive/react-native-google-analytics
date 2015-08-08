@@ -5,6 +5,9 @@ Google Analytics for React Native!
 ## Getting started
 
 1. `npm install react-native-google-analytics@latest --save`
+2. [AdSupport](https://github.com/facebook/react-native/tree/master/Libraries/AdSupport)
+ * You can find `RCTAdSupport.m` in `node_modules/react-native/Libraries/AdSupport`.
+ * In xcode: Add `RCTAdSupport.m` in `Your Project > Libraries > React.xcodeproj > React > Base`.
 
 ## Usage
 
