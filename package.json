@@ -8,9 +8,6 @@
   "description": "Google Analytics for React Native!",
   "main": "index.js",
   "author": "Lochlan Wansbrough <lochie@live.com> (http://lwansbrough.com)",
-  "peerDependencies": {
-    "react-native": "*"
-  },
   "keywords": [
     "react",
     "native",
