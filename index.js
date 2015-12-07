@@ -10,6 +10,5 @@ module.exports = {
     Item: require('./lib/hits/Item')
   },
   Analytics: require('./lib/Analytics'),
-  Experiment: require('./lib/Experiment'),
-  Tracking: require('./lib/Tracking')
+  Experiment: require('./lib/Experiment')
 };

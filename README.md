@@ -27,7 +27,6 @@ var {
 var { Experiment, Variant } = require('react-native-ab');
 var {
   Analytics,
-  Tracking: GATracking,
   Hits: GAHits,
   Experiment: GAExperiment
 } = require('react-native-google-analytics');
@@ -43,7 +42,7 @@ var rnabtest = React.createClass({
   },
 
   componentWillMount() {
-    GATracking.getClientId(function(err, clientId) {
+    SomeDeviceInfoManager.getClientId(function(err, clientId) {
       ga = new Analytics('UA-XXXXXXXX-X', clientId);
       var screenView = new GAHits.ScreenView('GA Test', '1', 'com.example.app');
       ga.send(screenView);
