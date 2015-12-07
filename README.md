@@ -5,9 +5,6 @@ Google Analytics for React Native!
 ## Getting started
 
 1. `npm install react-native-google-analytics@latest --save`
-2. [AdSupport](https://github.com/facebook/react-native/tree/master/Libraries/AdSupport)
- * You can find `RCTAdSupport.m` in `node_modules/react-native/Libraries/AdSupport`.
- * In xcode: Add `RCTAdSupport.m` in `Your Project > Libraries > React.xcodeproj > React > Base`.
 
 ## Usage
 
@@ -43,6 +40,9 @@ var rnabtest = React.createClass({
 
   componentWillMount() {
     SomeDeviceInfoManager.getClientId(function(err, clientId) {
+      // This is to illustrate that client ID management should be done by the application, not the library.
+      // https://github.com/rebeccahughes/react-native-device-info has an implementation of obtaining a client ID,
+      // their getUniqueId() method should do the job
       ga = new Analytics('UA-XXXXXXXX-X', clientId);
       var screenView = new GAHits.ScreenView('GA Test', '1', 'com.example.app');
       ga.send(screenView);
@@ -57,8 +57,7 @@ var rnabtest = React.createClass({
             <Experiment
               ref="welcomeMessageTest"
               name="welcome-message"
-              onChoice={this._onChoice}
-            >
+              onChoice={this._onChoice}>
               <Variant name="standard">
                 <Text style={styles.welcome}>
                   Welcome to React Native!
