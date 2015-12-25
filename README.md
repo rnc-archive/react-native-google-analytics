@@ -1,4 +1,4 @@
-# react-native-google-analytics
+# react-native-google-analytics [![npm version](https://badge.fury.io/js/react-native-google-analytics.svg)](http://badge.fury.io/js/react-native-google-analytics)
 
 Google Analytics for React Native!
 
@@ -13,20 +13,21 @@ Below is an example that utilizes this library along with `react-native-ab` for 
 ```javascript
 'use strict';
 
-var React = require('react-native');
-var {
+import React, { Component } from 'react-native';
+const {
   AppRegistry,
   StyleSheet,
   Text,
   View,
   TouchableHighlight
 } = React;
-var { Experiment, Variant } = require('react-native-ab');
-var {
+import { Experiment, Variant } from 'react-native-ab';
+import {
   Analytics,
-  Hits: GAHits,
-  Experiment: GAExperiment
-} = require('react-native-google-analytics');
+  Hits as GAHits,
+  Experiment as GAExperiment
+} from 'react-native-google-analytics';
+import DeviceInfo from 'react-native-device-info';
 
 var ga = this.ga = null;
 
@@ -39,14 +40,10 @@ var rnabtest = React.createClass({
   },
 
   componentWillMount() {
-    SomeDeviceInfoManager.getClientId(function(err, clientId) {
-      // This is to illustrate that client ID management should be done by the application, not the library.
-      // https://github.com/rebeccahughes/react-native-device-info has an implementation of obtaining a client ID,
-      // their getUniqueId() method should do the job
-      ga = new Analytics('UA-XXXXXXXX-X', clientId);
-      var screenView = new GAHits.ScreenView('Example App', 'Welcome Screen' '1', 'com.example.app');
-      ga.send(screenView);
-    });
+    let clientId = DeviceInfo.getUniqueID();
+    ga = new Analytics('UA-XXXXXXXX-X', clientId);
+    var screenView = new GAHits.ScreenView('Example App', 'Welcome Screen' '1', 'com.example.app');
+    ga.send(screenView);
   },
 
   render() {
