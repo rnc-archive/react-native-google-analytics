@@ -44,7 +44,7 @@ var rnabtest = React.createClass({
       // https://github.com/rebeccahughes/react-native-device-info has an implementation of obtaining a client ID,
       // their getUniqueId() method should do the job
       ga = new Analytics('UA-XXXXXXXX-X', clientId);
-      var screenView = new GAHits.ScreenView('GA Test', '1', 'com.example.app');
+      var screenView = new GAHits.ScreenView('Example App', 'Welcome Screen' '1', 'com.example.app');
       ga.send(screenView);
     });
   },
