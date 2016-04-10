@@ -41,8 +41,13 @@ var rnabtest = React.createClass({
 
   componentWillMount() {
     let clientId = DeviceInfo.getUniqueID();
-    ga = new Analytics('UA-XXXXXXXX-X', clientId);
-    var screenView = new GAHits.ScreenView('Example App', 'Welcome Screen', '1', 'com.example.app');
+    ga = new Analytics('UA-XXXXXXXX-X', clientId, 1, DeviceInfo.getUserAgent());
+    var screenView = new GAHits.ScreenView(
+      'Example App',
+      'Welcome Screen',
+      DeviceInfo.getReadableVersion(),
+      DeviceInfo.getBundleId()
+    );
     ga.send(screenView);
   },
 
