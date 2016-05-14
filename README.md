@@ -142,6 +142,17 @@ AppRegistry.registerComponent('rnabtest', () => rnabtest);
 
 ```
 
+Example of how to use custom dimensions:
+
+```javascript
+  // Set custom dimension with a given index & name
+  ga.setDimension(1, 'male'); // This will add &cd1=male to all hits
+  ga.setDimension(2, 'female');
+  // To remove a custom dimension
+  ga.removeDimension(1);
+```
+
+
 *TODO: App example that doesn't use react-native-ab*
 
 ## API
