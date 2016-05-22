@@ -1,14 +1,25 @@
-module.exports = {
+import Event from './lib/hits/Event';
+import Exception from './lib/hits/Exception';
+import PageView from './lib/hits/PageView';
+import ScreenView from './lib/hits/ScreenView';
+import Social from './lib/hits/Social';
+import Timing from './lib/hits/Timing';
+import Transaction from './lib/hits/Transaction';
+import Item from './lib/hits/Item';
+import Analytics from './lib/Analytics';
+import Experiment from './lib/Experiment';
+
+export default {
   Hits: {
-    Event: require('./lib/hits/Event'),
-    Exception: require('./lib/hits/Exception'),
-    PageView: require('./lib/hits/PageView'),
-    ScreenView: require('./lib/hits/ScreenView'),
-    Social: require('./lib/hits/Social'),
-    Timing: require('./lib/hits/Timing'),
-    Transaction: require('./lib/hits/Transaction'),
-    Item: require('./lib/hits/Item')
+    Event,
+    Exception,
+    PageView,
+    ScreenView,
+    Social,
+    Timing,
+    Transaction,
+    Item
   },
-  Analytics: require('./lib/Analytics'),
-  Experiment: require('./lib/Experiment')
+  Analytics,
+  Experiment
 };

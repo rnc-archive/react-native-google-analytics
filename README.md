@@ -145,9 +145,9 @@ AppRegistry.registerComponent('rnabtest', () => rnabtest);
 Example of how to use custom dimensions:
 
 ```javascript
-  // Set custom dimension with a given index & name
-  ga.setDimension(1, 'male'); // This will add &cd1=male to all hits
-  ga.setDimension(2, 'female');
+  // Add a custom dimension with a given index & name
+  ga.addDimension(1, 'male'); // This will add &cd1=male to all hits
+  ga.addDimension(2, 'female');
   // To remove a custom dimension
   ga.removeDimension(1);
 ```
