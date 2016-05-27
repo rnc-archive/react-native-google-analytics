@@ -6,20 +6,19 @@ import Social from './lib/hits/Social';
 import Timing from './lib/hits/Timing';
 import Transaction from './lib/hits/Transaction';
 import Item from './lib/hits/Item';
-import Analytics from './lib/Analytics';
-import Experiment from './lib/Experiment';
+import _Analytics from './lib/Analytics';
+import _Experiment from './lib/Experiment';
 
-export default {
-  Hits: {
-    Event,
-    Exception,
-    PageView,
-    ScreenView,
-    Social,
-    Timing,
-    Transaction,
-    Item
-  },
-  Analytics,
-  Experiment
+export const Hits = {
+  Event,
+  Exception,
+  PageView,
+  ScreenView,
+  Social,
+  Timing,
+  Transaction,
+  Item
 };
+
+export const Analytics = _Analytics;
+export const Experiment = _Experiment;
