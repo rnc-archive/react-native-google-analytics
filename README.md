@@ -8,7 +8,7 @@ Google Analytics for React Native!
 
 ## Usage
 
-Below is an example that utilizes this library along with `react-native-ab` for A/B testing.
+Below is an example that utilizes this library along with enhanced ecommerce functionality and `react-native-ab` for A/B testing.
 
 ```javascript
 'use strict';
@@ -32,7 +32,6 @@ import DeviceInfo from 'react-native-device-info';
 var ga = this.ga = null;
 
 var rnabtest = React.createClass({
-
   getInitialState() {
     return {
       experiments: {}
@@ -78,6 +77,11 @@ var rnabtest = React.createClass({
             </Experiment>
           </View>
         </TouchableHighlight>
+        <TouchableHighlight onPress={this._addImpression}>
+          <Text style={styles.addImpressionTest}>
+            Add GA Impression
+          </Text>
+        </TouchableHighlight>
         <TouchableHighlight onPress={this._sendEvent}>
           <Text style={styles.sendEventTest}>
             Send GA Event
@@ -95,7 +99,6 @@ var rnabtest = React.createClass({
   },
 
   _onChoice(testName, variantName) {
-
     var experiment = new GAExperiment(testName, variantName);
 
     var state = this.state;
@@ -109,8 +112,28 @@ var rnabtest = React.createClass({
 
   _sendEvent() {
     var experiment = this.state.experiments['welcome-message'];
-    var gaEvent = new GAHits.Event('Demos', 'send', 'React Native', 100, experiment);
+    var gaEvent = new GAHits.Event(
+      'Demos',
+      'send',
+      'React Native',
+      100,
+      experiment
+    );
     ga.send(gaEvent);
+  }
+
+  _addImpression() {
+    var gaImpression = new GAHits.Impression(
+      "P12345",
+      "Product Name",
+      "Product List",
+      "Product Brand",
+      "Product Category",
+      "Product Variant",
+      0, // Position
+      200 // Price
+    );
+    ga.add(gaImpression);
   }
 });
 
@@ -135,6 +158,11 @@ var styles = StyleSheet.create({
     color: 'blue',
     fontSize: 16,
     textAlign: 'center'
+  },
+  addImpressionTest: {
+    color: 'green',
+    fontSize: 16,
+    textAlign: 'center'
   }
 });
 
@@ -152,9 +180,25 @@ Example of how to use custom dimensions:
   ga.removeDimension(1);
 ```
 
-
 *TODO: App example that doesn't use react-native-ab*
 
 ## API
 
-*Coming soon. For now, refer to the usage section.*
+### Enhanced Ecommerce Hits
+
+The enhanced ecommerce hits are not sent automatically, instead they are retained until a regular hit is sent. For more documentation please go [here](https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#enhancedecom).
+
+#### new GAHits.Impression(id, name, list, brand, category, variant, position, price)
+
+* **id (required\*):** string
+* **name (required\*):** string
+* **list (required):** string
+* **brand (optional):** string
+* **category (optional):** string
+* **variant (optional):** string
+* **position (optional):** number
+* **price (optional):** number
+
+**\*** Either **id** or **name** must be set.
+
+*Coming soon the rest of the API. For now, refer to the usage section.*
