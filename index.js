@@ -1,5 +1,6 @@
 import Event from './lib/hits/Event';
 import Exception from './lib/hits/Exception';
+import Impression from './lib/hits/Impression';
 import PageView from './lib/hits/PageView';
 import ScreenView from './lib/hits/ScreenView';
 import Social from './lib/hits/Social';
@@ -12,6 +13,7 @@ import _Experiment from './lib/Experiment';
 export const Hits = {
   Event,
   Exception,
+  Impression,
   PageView,
   ScreenView,
   Social,
