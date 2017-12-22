@@ -11,11 +11,8 @@ Google Analytics for React Native!
 Below is an example that utilizes this library along with enhanced ecommerce functionality and `react-native-ab` for A/B testing.
 
 ```javascript
-'use strict';
-
-import React, { Component } from 'react-native';
+import React from 'react-native';
 const {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -29,26 +26,24 @@ import {
 } from 'react-native-google-analytics';
 import DeviceInfo from 'react-native-device-info';
 
-var ga = this.ga = null;
+let ga = this.ga = null;
 
-var rnabtest = React.createClass({
-  getInitialState() {
-    return {
-      experiments: {}
-    };
-  },
+export default class App extends React.Component {
+  state = {
+    experiments: {},
+  }
 
   componentWillMount() {
     let clientId = DeviceInfo.getUniqueID();
     ga = new Analytics('UA-XXXXXXXX-X', clientId, 1, DeviceInfo.getUserAgent());
-    var screenView = new GAHits.ScreenView(
+    let screenView = new GAHits.ScreenView(
       'Example App',
       'Welcome Screen',
       DeviceInfo.getReadableVersion(),
       DeviceInfo.getBundleId()
     );
     ga.send(screenView);
-  },
+  }
 
   render() {
     return (
@@ -96,23 +91,23 @@ var rnabtest = React.createClass({
         </Text>
       </View>
     );
-  },
+  }
 
-  _onChoice(testName, variantName) {
-    var experiment = new GAExperiment(testName, variantName);
+  _onChoice = (testName, variantName) => {
+    let experiment = new GAExperiment(testName, variantName);
 
-    var state = this.state;
+    let state = {...this.state};
     state.experiments[testName] = experiment;
     this.setState(state);
-  },
+  }
 
-  _resetExperiment() {
+  _resetExperiment = () => {
     this.refs.welcomeMessageTest.reset();
-  },
+  }
 
-  _sendEvent() {
-    var experiment = this.state.experiments['welcome-message'];
-    var gaEvent = new GAHits.Event(
+  _sendEvent = () => {
+    let experiment = this.state.experiments['welcome-message'];
+    let gaEvent = new GAHits.Event(
       'Demos',
       'send',
       'React Native',
@@ -122,7 +117,7 @@ var rnabtest = React.createClass({
     ga.send(gaEvent);
   }
 
-  _addImpression() {
+  _addImpression = () => {
     var gaImpression = new GAHits.Impression(
       "P12345",
       "Product Name",
@@ -135,9 +130,9 @@ var rnabtest = React.createClass({
     );
     ga.add(gaImpression);
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -165,9 +160,6 @@ var styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
-
-AppRegistry.registerComponent('rnabtest', () => rnabtest);
-
 ```
 
 Example of how to use custom dimensions:

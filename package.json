@@ -5,7 +5,7 @@
     "url": "https://github.com/lwansbrough/react-native-google-analytics.git"
   },
   "version": "1.4.0",
-  "description": "Google Analytics for React Native!",
+  "description": "Google Analytics for React Native",
   "main": "index.js",
   "author": "Lochlan Wansbrough <lochie@live.com> (http://lwansbrough.com)",
   "keywords": [
