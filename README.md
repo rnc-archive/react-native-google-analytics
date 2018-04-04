@@ -11,13 +11,13 @@ Google Analytics for React Native!
 Below is an example that utilizes this library along with enhanced ecommerce functionality and `react-native-ab` for A/B testing.
 
 ```javascript
-import React from 'react-native';
-const {
+import React from 'react';
+import {
   StyleSheet,
   Text,
   View,
   TouchableHighlight
-} = React;
+} from 'react-native';
 import { Experiment, Variant } from 'react-native-ab';
 import {
   Analytics,
