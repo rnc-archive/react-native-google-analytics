@@ -2,6 +2,8 @@
 
 Google Analytics for React Native!
 
+> 🚨 Check out [`expo-firebase-analytics`](https://docs.expo.io/versions/latest/sdk/firebase-analytics/) for universal React support (iOS, Android, web, & Electron).
+
 ## Getting started
 
 1. `npm install react-native-google-analytics@latest --save`
